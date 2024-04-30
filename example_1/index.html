@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Перша сторінка</title>
+</head>
+<body>
+    <h2>Назвіться, будь ласка</h2>
+    <form name="F1" method="POST" action="/submit">
+        Ім'я: <input type="text" name="name"><br>
+        Вік: <input type="text" name="age"><br>
+        <p><input type="submit" value="ВВЕДЕННЯ" onclick="return Proverka();"></p>
+    </form>
+    <script>
+        function Proverka() {
+            var im = document.F1.name.value;
+            var vozr = document.forms[0].elements['age'].value;
+            var st = "";
+            if (im == "") st += "ім'я\n";
+            if (vozr == "") st += "вік";
+            if (st == "") {
+            } else {
+                var str = "Введіть:\n" + st;
+                alert(str);
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
