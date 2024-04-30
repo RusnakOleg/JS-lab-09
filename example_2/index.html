@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Скрипт SELECT</title>
+</head>
+<body>
+    <h2>Підбір відтінків кольору</h2>
+    <p>У першому полі введіть шістнадцятковий код кольору. Наприклад, червоний колір має код FF0000.</p>
+    <p>Зі списку в другому полі виберіть для порівняння один з основних кольорів (червоний, жовтий, каштановий, зелений, синій)</p>
+    
+    <form id="colorForm">
+        <label for="Kod">Введіть код кольору:</label>
+        <input type="text" id="Kod" name="Kod">
+        <br>
+        <label for="Gor">Виберіть колір:</label>
+        <select id="Gor" name="Gor">
+            <option value="red">Червоний</option>
+            <option value="yellow">Жовтий</option>
+            <option value="maroon">Каштановий</option>
+            <option value="green">Зелений</option>
+            <option value="blue">Синій</option>
+        </select>
+        <br>
+        <button type="button" onclick="selectColor()">Виконати</button>
+    </form>
+    
+    <p><strong id="alfa"></strong></p>
+    <p><strong id="beta"></strong></p>
+
+    <script>
+        function selectColor() {
+            var kod = document.getElementById('Kod').value;
+            var selectElement = document.getElementById('Gor');
+            var selectedColor = selectElement.options[selectElement.selectedIndex].value;
+
+            var alfaElement = document.getElementById('alfa');
+            var betaElement = document.getElementById('beta');
+
+            alfaElement.innerHTML = `<span style="font-size: 24px; color: #${kod};">#${kod}</span>`;
+            betaElement.innerHTML = `<span style="font-size: 24px; color: ${selectedColor};">${selectedColor}</span>`;
+        }
+    </script>
+</body>
+</html>
